@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GotRays - Versão móvel manual</title>
+<style>
+  body { font-family: 'Arial', sans-serif; margin:0; padding:0; background:#121212; color:#fff; overflow-x:hidden;}
+  header { background: linear-gradient(90deg,#fe2c55,#25f4ee); padding:40px 20px; text-align:center; }
+  header h1 { font-size:22px; margin:0 0 10px 0; }
+  header p { font-size:14px; margin:0; }
+
+  section { padding:30px 20px; max-width: 600px; margin:auto; }
+  .article-card { background:#1e1e1e; padding:15px; margin:15px 0; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.5); }
+  ul { margin:10px 0 10px 20px; }
+
+  .carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling: touch; margin:15px 0; }
+  .carousel-item { flex: 0 0 80%; scroll-snap-align:start; margin-right:10px; border-radius:12px; }
+  .carousel-item img, .carousel-item video { width:100%; border-radius:12px; }
+
+  .carousel::-webkit-scrollbar { display:none; }
+  .carousel { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .btn-link { display:inline-block; background:#fe2c55; color:#fff; padding:12px 24px; margin:20px auto; border-radius:25px; text-decoration:none; font-weight:bold; text-align:center; transition:0.3s; }
+  .btn-link:hover { background:#ff6584; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bem-vindo ao time GotRays, uma empresa de gestão dedicada ao seu crescimento.</h1>
+  <p>Aqui, você terá mais oportunidades, conhecerá criadores de alto nível, aprenderá técnicas avançadas de transmissão ao vivo e poderá receber rendimentos extras.</p>
+</header>
+
+<section>
+  <h2>Sobre a empresa</h2>
+  <div class="article-card">
+    <p>Somos uma empresa global, com 20.000 parceiros. Na região do Brasil, nossa agência possui mais de 1.000 criadores, ajudando muitos streamers a alcançar a Liga A. Também somos convidados para eventos globais de destaque. Aqui, você terá mais oportunidades, conhecerá criadores de topo, aprenderá técnicas avançadas de transmissão e ainda poderá receber recompensas adicionais.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Benefícios e vantagens</h2>
+  <div class="article-card">
+    <ul>
+      <li>Presente de boas-vindas: cada criador que se junta recebe um presente para dar as boas-vindas à nossa família.</li>
+      <li>Recompensa mensal: cada criador recebe recompensas mensais para incentivar seu crescimento e criação.</li>
+      <li>Eventos: organizamos atividades regulares para que os criadores possam se destacar e ganhar mais presentes.</li>
+      <li>Crescimento acompanhado: oferecemos planos de crescimento, ajudamos na criação de pôsteres ou na busca de adversários para batalhas oficiais.</li>
+      <li>Segurança da conta: ajudamos os criadores a resolver problemas de bloqueio de transmissão, login ou restrições de presentes.</li>
+    </ul>
+    <p>Para que os criadores possam se desenvolver melhor na plataforma, respeitamos e entendemos todos os tipos de criação. Não limitamos conteúdo nem horários de transmissão, não aplicamos punições e não cobramos taxas. Você é sempre livre e pode sair quando quiser.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Como funciona a agência</h2>
+  <div class="article-card">
+    <p>Temos parceria com o TikTok e ajudamos a cultivar criadores talentosos, oferecendo orientação para iniciantes e auxiliando o TikTok na gestão. Quando um criador cresce, a agência recebe recompensas do TikTok e compartilha essas recompensas com os criadores, formando a base das recompensas mensais.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Screenshots da agência</h2>
+  <div class="carousel" id="screenshotCarousel"></div>
+</section>
+
+<section>
+  <h2>Criadores que já receberam ajuda da agência</h2>
+  <div class="carousel" id="videoCarousel"></div>
+</section>
+
+<section style="text-align:center;">
+  <a href="https://www.tiktok.com/t/ZS2AQdfxp/" class="btn-link" target="_blank">Clique aqui para se juntar ao time GotRays</a>
+</section>
+
+<script>
+  // ----------------- Arquivos de screenshots e vídeos -----------------
+  const screenshots = ['截图1.jpg','截图2.jpg','截图3.jpg','截图4.jpg','截图5.jpg']; 
+  // 去掉视频1和视频3，只保留6个视频
+  const videos = ['视频2.mp4','视频8.mp4','视频4.mp4','视频5.mp4','视频6.mp4','视频7.mp4'];
+
+  const screenshotContainer = document.getElementById('screenshotCarousel');
+  const videoContainer = document.getElementById('videoCarousel');
+
+  // Gerar automaticamente os cartões de screenshots
+  screenshots.forEach(src => {
+    const div = document.createElement('div');
+    div.className = 'carousel-item';
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = "Screenshot";
+    div.appendChild(img);
+    screenshotContainer.appendChild(div);
+  });
+
+  // Gerar automaticamente os cartões de vídeos
+  videos.forEach(src => {
+    const div = document.createElement('div');
+    div.className = 'carousel-item';
+    const video = document.createElement('video');
+    video.controls = true;
+    video.muted = true;
+    video.loop = true;
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = "video/mp4";
+    video.appendChild(source);
+    div.appendChild(video);
+    videoContainer.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
